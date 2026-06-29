@@ -1,0 +1,63 @@
+{
+  "name": "@zooai/brand",
+  "version": "0.1.0",
+  "description": "Zoo brand card / hero / OG-image generator",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "zoo-brand": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./hero": {
+      "import": "./dist/hero.mjs",
+      "require": "./dist/hero.js",
+      "types": "./dist/hero.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/hero.ts src/cli.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts src/hero.ts src/cli.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "zoo",
+    "zooai",
+    "brand",
+    "og-image",
+    "social-card",
+    "hero",
+    "svg",
+    "design-system"
+  ],
+  "author": "Zoo Labs Foundation",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zooai/brand.git"
+  },
+  "homepage": "https://github.com/zooai/brand",
+  "dependencies": {
+    "@zooai/logo": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.2.14",
+    "eslint": "^8.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
